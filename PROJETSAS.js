@@ -189,3 +189,29 @@ function ModifierleCandidat(){
     }
 
 }
+function SupprimerCandidat(){
+    if(cont<=0){
+        console.log(`   il nya aucun candidat ajoute les condidat;`);
+        return menu();  
+    }
+    let cin=prompt("entre le cin du candidat : ");
+    let verevie=0;
+    let nouveauCandidats=[];
+    for(let i=0;i<cont;i++){
+        if(candidats[i].cin==cin){
+            verevie=1;
+        }else{
+            nouveauCandidats.push(candidats[i]);
+        }
+    }
+    if(verevie==1){
+        cont--;
+        candidats.length=0;
+        for(let i=0;i<cont;i++){
+            candidats.push(nouveauCandidats[i]);
+        }
+        console.log("le candidats et suprime ");
+    }else{
+        console.log(`   le candidat introvable `);
+    }
+}
