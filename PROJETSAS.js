@@ -91,3 +91,57 @@ function AjouterPlusieursCandidats(){
         AjouterCandidat();
     }
 }
+function AfficherListeCandidats(){
+    console.log(`
+        1. affichage simple 
+        2. trier les candidats par nombre de votes
+        3. afficher uniquement les candidats d'un parti politique spécifique.
+         :`);
+    let choix=Number(prompt(" Votre choix : "));
+    switch(choix){
+        case 1 :
+            for(let i=0;i<cont;i++){
+                console.log(`
+                    cin    : ${candidats[i].cin}
+                    nom    : ${candidats[i].nom}
+                    prenom : ${candidats[i].prenom}
+                    parti  : ${candidats[i].partiPolitique}
+                    age    : ${candidats[i].age}
+                    votes  : ${candidats[i].electeurs.length}
+                    `);
+            }
+            break;
+        case 2 :
+            trierVote();
+            for(let i=0;i<cont; i++){
+                console.log(`
+                    cin    : ${candidats[i].cin}
+                    nom    : ${candidats[i].nom}
+                    prenom : ${candidats[i].prenom}
+                    parti  : ${candidats[i].partiPolitique}
+                    age    : ${candidats[i].age}
+                    votes  : ${candidats[i].electeurs.length}
+                    `);
+            }
+            break;
+        case 3 :
+            let parti=prompt("entre le nom de parti")
+            for(let i=0;i<cont;i++){
+                if(candidats[i].partiPolitique==parti){
+                    console.log(`
+                        cin    : ${candidats[i].cin}
+                        nom    : ${candidats[i].nom}
+                        prenom : ${candidats[i].prenom}
+                        parti  : ${candidats[i].partiPolitique}
+                        age    : ${candidats[i].age}
+                        votes  : ${candidats[i].electeurs.length}
+                        `);
+                }
+            }
+            break;
+        default :
+        console.log("choix pas valide");
+    }
+
+
+}
