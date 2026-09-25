@@ -168,3 +168,24 @@ function VoterCandidat(){
     console.log("candidat introvable ");
     
 }
+function ModifierleCandidat(){
+    if(cont<=0){
+        console.log(`   il nya aucun candidat ajoute les condidat;`);
+        return ;  
+    }
+    let cont1=0;
+    let cin=prompt("entre le cin du candidat : ");
+    for(let i=0;i<cont;i++){
+        if(candidats[i].cin==cin){
+            cont1++;
+            candidats[i].partiPolitique=prompt("entre la nouvel parti");
+            candidats[i].age=prompt("entre nouvel age");
+            console.log("le parti politique et age de candidat modifier");
+            return ;
+        }
+    }
+    if(cont1==0){
+        console.log(`   le candidat introvable `);
+    }
+
+}
