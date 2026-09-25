@@ -54,3 +54,33 @@ if(choix!==0){
     menu();
 }
 }
+function AjouterCandidat(){
+    let cont1=0;
+    let cin=prompt("entre le cin   :");
+    for(let i=0;i<cont;i++){
+        if(cin==candidats[i].cin){
+            console.log("le candidant est  dija inscrit ");
+            cont1++;
+        }
+
+    }if(cont1==0){
+    let nom=prompt("entre le nom de candidant   :");
+    let prenom=prompt("entre le prenom de candidant   :");
+    let partiPolitique=prompt("entre le nom du parti ")||"Independant"
+    let age=prompt("entre le age  :");
+    cont++;
+    let candidat = { 
+        cin : cin, 
+        nom : nom, 
+        prenom :prenom, 
+        partiPolitique : partiPolitique, 
+        age: age,         
+        electeurs: [] 
+    }; 
+    candidats.push(candidat);
+    console.log(`
+           le condidants et ajouter
+            `);
+    }
+  
+}
