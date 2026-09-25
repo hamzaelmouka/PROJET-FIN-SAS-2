@@ -275,6 +275,16 @@ function Statistiqueselection(){
     console.log(`
            le nombre totale de candidat a parti politique  : ${totalCandidat}
         `);
-    
-
+}
+function trierVote(){
+    let reserv;
+    for(let i=0;i<cont-1;i++){
+        for(let j=0;j<cont-1-i;j++){
+            if(lengths(candidats[j].electeurs)<lengths(candidats[j+1].electeurs)){
+                reserv=candidats[j];
+                candidats[j]=candidats[j+1];
+                candidats[j+1]=reserv;
+            }
+        }
+    }
 }
