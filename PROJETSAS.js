@@ -142,6 +142,29 @@ function AfficherListeCandidats(){
         default :
         console.log("choix pas valide");
     }
-
-
+}
+function VoterCandidat(){
+    if(cont<=0){
+        console.log(`   il nya aucun candidat ajoute les condidat;`);
+        return ;  
+    }
+    let cinElecteur=prompt("entre le cin  :");
+    for(let i=0;i<cont;i++){
+        for(let j=0;j<candidats[i].electeurs.length;j++){
+            if(candidats[i].electeurs[j]==cinElecteur){
+                console.log("vous deja vote deja vote et vous navz pas le droitde modifier voutre vote in de votre a nouveau");
+                return ;
+            }
+        }
+    }
+    let cinCandidat=prompt("entre le cin de candidat :");
+    for(let i=0;i<cont;i++){
+        if(candidats[i].cin==cinCandidat){
+            candidats[i].electeurs.push(cinElecteur);
+            console.log("vote enregistre");
+            return ;
+        }
+    }
+    console.log("candidat introvable ");
+    
 }
