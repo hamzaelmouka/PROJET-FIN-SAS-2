@@ -18,42 +18,43 @@ function menu(){
         8. Statistiques de l'élection  
         0. Quitter 
         `)
-let choix=Number(prompt("    Votre choix :"));
-switch(choix){
-    case 1:
-        AjouterCandidat();
-        break;
-    case 2:
-        AjouterPlusieursCandidats();
-        break;
-    case 3:
-        AfficherListeCandidats();
-        break;
-    case 4:
-        VoterCandidat();
-        break;
-    case 5:
-        ModifierleCandidat();
-        break;
-    case 6:
-        SupprimerCandidat();
-        break;
-    case 7:
-        RechercherCandidats();
-        break;
-    case 8:
-        Statistiqueselection();
-        break;
-    case 0:
-        break;
-    default :
-    console.log(`       le choix pas valide entre outro choix
+    let choix=Number(prompt("    Votre choix :"));
+    switch(choix){
+        case 1:
+            AjouterCandidat();
+            break;
+        case 2:
+            AjouterPlusieursCandidats();
+            break;
+        case 3:
+            AfficherListeCandidats();
+            break;
+        case 4:
+            VoterCandidat();
+            break;
+        case 5:
+            ModifierleCandidat();
+            break;
+        case 6:
+            SupprimerCandidat();
+            break;
+        case 7:
+            RechercherCandidats();
+            break;
+        case 8:
+            Statistiqueselection();
+            break;
+        case 0:
+            break;
+            default :
+            console.log(`       le choix pas valide entre outro choix
         `);   
 }
 if(choix!==0){
     menu();
 }
 }
+
 function AjouterCandidat(){
     let cont1=0;
     let cin=prompt("entre le cin   :");
@@ -82,5 +83,11 @@ function AjouterCandidat(){
            le condidants et ajouter
             `);
     }
-  
+}
+
+function AjouterPlusieursCandidats(){
+    let pluseur=Number(prompt("entre le nombre de candidant pou ajour : "));
+    for(let i=0;i<pluseur;i++){
+        AjouterCandidat();
+    }
 }
