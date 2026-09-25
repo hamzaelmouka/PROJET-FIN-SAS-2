@@ -240,3 +240,41 @@ function RechercherCandidats(){
     }
 
 }
+function Statistiqueselection(){
+    if(cont<=0){
+        console.log(`   il nya aucun candidat , ajoute les condidat;`);
+        return menu();  
+    }
+    let totalCandidat=0;
+    let totalVote=0;
+    let Independant="Independant"
+    let condidatPartiPolitique=0;
+    for(i=0;i<cont;i++){
+        totalCandidat+=1;
+        totalVote+=lengths(candidats[i].electeurs);
+        if(candidats[i].partiPolitique!=Independant){
+            condidatPartiPolitique+=1;
+        }
+    }
+    console.log(`
+        le nombre totale de candidat est       :  ${totalCandidat}
+        le nombre totale de electour qui vete  :  ${totalVote}
+        `);
+        
+    trierVote();
+    for(let i=0;i<3&&cont-i>0;i++){
+        console.log(`
+                    cin    : ${candidats[i].cin}
+                    nom    : ${candidats[i].nom}
+                    prenom : ${candidats[i].prenom}
+                    parti  : ${candidats[i].partiPolitique}
+                    age    : ${candidats[i].age}
+                    votes  : ${candidats[i].electeurs.length}
+            `);
+    }
+    console.log(`
+           le nombre totale de candidat a parti politique  : ${totalCandidat}
+        `);
+    
+
+}
