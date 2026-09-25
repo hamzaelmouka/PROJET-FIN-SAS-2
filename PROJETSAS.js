@@ -288,3 +288,10 @@ function trierVote(){
         }
     }
 }
+function lengths(tablou){
+    let comtour=0;
+    for(let i=0;tablou[i]!=undefined;i++){
+        comtour++;
+    }
+    return comtour ;
+}
