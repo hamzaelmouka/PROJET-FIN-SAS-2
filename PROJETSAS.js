@@ -215,3 +215,28 @@ function SupprimerCandidat(){
         console.log(`   le candidat introvable `);
     }
 }
+function RechercherCandidats(){
+    if(cont<=0){
+        console.log(`   il nya aucun candidat , ajoute les condidat;`);
+        return menu();  
+    }
+    let cont1=0;
+    let nom=prompt("entre le nom du candidat : ");
+    for(let i=0;i<cont;i++){
+        if(candidats[i].nom==nom){
+            cont1++;
+            console.log(`
+                    cin    : ${candidats[i].cin}
+                    nom    : ${candidats[i].nom}
+                    prenom : ${candidats[i].prenom}
+                    parti  : ${candidats[i].partiPolitique}
+                    age    : ${candidats[i].age}
+                    votes  : ${lengths(candidats[i].electeurs)}
+                    `);
+        }
+    }
+    if(cont1==0){
+        console.log("         le nom qui entre nexeste pas ");
+    }
+
+}
