@@ -1,4 +1,4 @@
-const prompt=require('prompt-sync')()
+const prompt=require('prompt-sync')();
 const candidats=[
     {
     cin: "LM345678",
@@ -93,7 +93,8 @@ const candidats=[
       "EL000027",
       "EL000028",
       "EL000029",
-      "EL000030"
+      "EL000030",
+      "EL000085"
     ]
   },
   {
@@ -172,8 +173,7 @@ const candidats=[
       "EL000081",
       "EL000082",
       "EL000083",
-      "EL000084",
-      "EL000085"
+      "EL000084"
     ]
   }
 ];
@@ -269,8 +269,8 @@ function AjouterPlusieursCandidats(){
     let pluseur;
     do{
         console.log(`
-            Entrez le nombre de candidant pou ajour 
-            Ou saisissez 0 por revenir au menu `);
+    Entrez le nombre de candidant pou ajour 
+    Ou saisissez 0 por revenir au menu : `);
         pluseur=prompt("");
     }while(pluseur!=Number(pluseur))
     for(let i=0;i<pluseur;i++){   
@@ -371,7 +371,7 @@ function ModifierleCandidat(){
 function SupprimerCandidat(){
     if(cont<=0){
         console.log(`  ✖ Il n'ya aucun candidat ajoute les condidat;`);
-        return menu();  
+        return ;  
     }
     let cin=prompt("Entrez le cin du candidat : ");
     let verevie=0;
@@ -397,7 +397,7 @@ function SupprimerCandidat(){
 function RechercherCandidats(){
     if(cont<=0){
         console.log(`  ✖ Il n'ya aucun candidat ajoute les condidat;`);
-        return menu();  
+        return ;  
     }
     let trouve=true;
     let nom=prompt("Entrez le nom du candidat : ");
@@ -417,7 +417,7 @@ function Statistiqueselection(){
         return menu();  
     }
     let totalVote=0;
-    for(i=0;i<cont;i++){
+    for(let i=0;i<cont;i++){
         totalVote+=totalElements(candidats[i].electeurs);
     }
     console.log(`
@@ -428,7 +428,7 @@ function Statistiqueselection(){
     trierVote();
     if(cont>0){
         console.log(`
-        ----Les trois premiers partis :-----`);
+        ----Les trois premiers Candidats :-----`);
     }
     for(let i=0;i<3&&cont-i>0;i++){
         AficherCondidat(i)    
