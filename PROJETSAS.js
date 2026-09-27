@@ -414,16 +414,17 @@ function RechercherCandidats(){
 function Statistiqueselection(){
     if(cont<=0){
         console.log(`  ✖ Il n'ya aucun candidat ajoute les condidat;`);
-        return menu();  
+        return ;  
     }
     let totalVote=0;
     for(let i=0;i<cont;i++){
         totalVote+=totalElements(candidats[i].electeurs);
     }
-    console.log(`
+    console.log(` 
+        =======Les statistiques generale====
+
         Le nombre totale de candidat est       :  ${cont}
-        Le nombre totale de electour qui vete  :  ${totalVote}
-        `);
+        Le nombre totale de electour qui vete  :  ${totalVote}`);
         
     trierVote();
     if(cont>0){
@@ -432,6 +433,20 @@ function Statistiqueselection(){
     }
     for(let i=0;i<3&&cont-i>0;i++){
         AficherCondidat(i)    
+    }
+    let nombreCandidatparparti={};
+    for(let cle of candidats){
+        if(nombreCandidatparparti[cle.partiPolitique]){
+            nombreCandidatparparti[cle.partiPolitique]+=1;
+        }else{
+            nombreCandidatparparti[cle.partiPolitique]=1;
+        }
+
+    }
+    console.log(`      ----Le candidats par parti politique----
+    [Le nom parti ]-----[le nombre de candidats]`)
+    for(let cle in nombreCandidatparparti){
+            console.log("     ",cle,"    :", nombreCandidatparparti[cle]);
     }
     let partiPolitique={};
     for(let cle of candidats){
@@ -442,9 +457,10 @@ function Statistiqueselection(){
         }
 
     }
-    console.log("[Le nom parti ]-----[le nombre de vote]")
+    console.log(`      ----Le votr par parti politique----
+    [Le nom parti ]-----[le nombre de vote]`)
     for(let cle in partiPolitique){
-        console.log(cle,"    :", partiPolitique[cle]);
+            console.log("     ",cle,"    :", partiPolitique[cle]);
     }
 }
 function AficherCondidat(n){
